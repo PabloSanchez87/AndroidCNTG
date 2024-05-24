@@ -22,6 +22,7 @@
 
     <EditText
         android:id="@+id/numberIn"
+        android:hint="0"
         android:layout_width="59dp"
         android:layout_height="68dp"
         android:ems="10"
