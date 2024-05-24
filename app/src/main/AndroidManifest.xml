@@ -16,19 +16,18 @@
         <activity
             android:name=".searchNumber.SearchNumberActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
 
         <activity
             android:name=".imc.ResultadoIMCActivity"
             android:exported="false" />
         <!--
- android:screenOrientation="portrait"
+    android:screenOrientation="portrait"
                 controlamos la orientación bloqueandola en vertical (portrait) o horizontal (landscape)
             android:configChanges="orientation|keyboard|screenSize"
                 le decimos que aunque salga el teclado, cambie tamaño pantalla no haga nada, que nosotros
@@ -36,23 +35,21 @@
         -->
         <activity
             android:name=".imc.IMCActivity"
-            android:configChanges="orientation|keyboard|screenSize"
-            android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:exported="true" />
         <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                    <intent-filter>
+                        <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        -->
+                        <category android:name="android.intent.category.LAUNCHER" />
+                    </intent-filter>
+                </activity>
+         -->
         <activity
             android:name=".versiones.IMC_B_Activity"
             android:exported="false" />
         <activity
             android:name=".versiones.VersionesActivity"
             android:exported="false" />
-    </application>
 
+    </application>
 </manifest>

@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">CntgApp</string>
+    <string name="app_name">CntgApp ES</string>
+    <string name="mensaje_peso">Introduzca peso (kg):</string>
+    <string name="mensaje_altura">Introduzca altura (m):</string>
+    <string name="boton_calcular">Calcular</string>
+    <string name="mensaje_victoria">Correcto! Has acertado! El número era %1$d</string>
+    <string name="mensaje_menor">Has fallado! Vuelva a intentarlo. El número es menor. Intentos restantes: %1$d.</string>
+    <string name="mensaje_mayor">Has fallado! Vuelva a intentarlo. El número es mayor. Intentos restantes: %1$d.</string>
+    <string name="mengaje_game_over">Game Over!! El número correcto era %1$d. Te has quedado sin intentos.</string>
+    <string name="mensaje_aviso_introduce">Introduce un número. Por favor.</string>
+    <string name="mensaje_boton_probar">Probar suerte</string>
+    <string name="mensaje_reiniciar">Reiniciar</string>
+    <string name="mensaje_titulo">CNTG APP\nAdivina un número entre 1 el 100</string>
 </resources>

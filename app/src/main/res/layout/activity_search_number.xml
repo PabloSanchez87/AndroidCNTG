@@ -9,11 +9,11 @@
 
     <TextView
         android:id="@+id/mostrarNombreApp"
-        android:layout_width="299dp"
-        android:layout_height="56dp"
-        android:text="APP_CNTG \nAdivina un número entre 1 el 100"
+        android:layout_width="274dp"
+        android:layout_height="87dp"
+        android:gravity="center"
+        android:text="@string/mensaje_titulo"
         android:textSize="20dp"
-        android:gravity= "center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,24 +22,24 @@
 
     <EditText
         android:id="@+id/numberIn"
-        android:hint="0"
         android:layout_width="59dp"
         android:layout_height="68dp"
         android:ems="10"
         android:gravity="center"
+        android:hint="0"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206" />
+        app:layout_constraintVertical_bias="0.23" />
 
     <Button
         android:id="@+id/boton"
         android:layout_width="202dp"
         android:layout_height="52dp"
         android:gravity="center"
-        android:text="Probar suerte"
+        android:text="@string/mensaje_boton_probar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -57,14 +57,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.536" />
+        app:layout_constraintVertical_bias="0.542" />
 
     <Button
         android:id="@+id/reiniciar"
         android:layout_width="202dp"
         android:layout_height="52dp"
         android:gravity="center"
-        android:text="Reiniciar"
+        android:text="@string/mensaje_reiniciar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

@@ -17,7 +17,7 @@ class SearchNumberActivity : AppCompatActivity() {
     private var intentos: Int = Constantes.MAX_INTENTOS
 
     // Variables para las vistas
-    private lateinit var numeroIntroducido: EditText
+    lateinit var numeroIntroducido: EditText
     private lateinit var probarSuerte: Button
     private lateinit var resultadoTextView: TextView
     private lateinit var reiniciarBoton: Button
@@ -99,33 +99,37 @@ class SearchNumberActivity : AppCompatActivity() {
             intentos--                                      // Decrementar el contador de intentos
             val mensaje: String                             // Declaramos una variable mensaje fuera de los condicionales.
             if (numeroUsuarioInt == numeroAleatorio) {            // Comprobamos si el número ingresado por el usuario es igual al número aleatorio
-                mensaje = "Correcto! Has acertado! El número era $numeroAleatorio"
+                //mensaje = "Correcto! Has acertado! El número era $numeroAleatorio"
+                mensaje = resources.getString(R.string.mensaje_victoria, numeroAleatorio)
                 probarSuerte.isEnabled = false              // Deshabilitar el botón de "Probar suerte" ya que ya ha acertado.
                 reiniciarBoton.visibility = View.VISIBLE    // Mostrar el botón de reinicio
+                numeroIntroducido.visibility = View.INVISIBLE // Escondemos el edit text hasta que le de a reinicio.
             } else {
                 // Si no es correcto, determinar si el usuario tiene más intentos restantes
                 mensaje = if (intentos > 0) {               // Guardamos en mensaje el texto a mostrar en TextView
                                                             // Si quedan intentos, mostrar un mensaje indicando si el número es mayor o menor
                     if (numeroUsuarioInt > numeroAleatorio) {
-                        "Has fallado! Vuelva a intentarlo. El número es menor. Intentos restantes: $intentos."
+                        resources.getString(R.string.mensaje_menor, intentos)
                     } else {
-                        "Has fallado! Vuelva a intentarlo. El número es mayor. Intentos restantes: $intentos."
+                        resources.getString(R.string.mensaje_mayor, intentos)
                     }
                 } else {
                     // Si ya no quedan intentos, mostrar un mensaje de juego terminado
-                    "Game Over!! El número correcto era $numeroAleatorio. Te has quedado sin intentos."
+                    resources.getString(R.string.mengaje_game_over, numeroAleatorio)
+
                 }
                 // Si ya no quedan intentos, mostrar el botón de reinicio
                 if (intentos == 0) {
                     reiniciarBoton.visibility = View.VISIBLE // Mostrar el botón de reinicio cuando se agoten los intentos
                     probarSuerte.visibility = View.INVISIBLE // Ocultar el botón de probarSuerte cuando se agoten los intentos
+                    numeroIntroducido.visibility = View.INVISIBLE// Hacer el EditText invisible cuando se agoten los intentos
                 }
             }
 
             resultadoTextView.text = mensaje                // Mostrar el mensaje en el TextView
             numeroIntroducido.text.clear()                  // Limpiar el contenido del EditText para el próximo intento
         } else {
-            Toast.makeText(this, "Introduce un número", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, resources.getString(R.string.mensaje_aviso_introduce), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -137,6 +141,7 @@ class SearchNumberActivity : AppCompatActivity() {
         reiniciarBoton.visibility = View.INVISIBLE
         probarSuerte.visibility = View.VISIBLE
         resultadoTextView.text = ""
+        numeroIntroducido.visibility = View.VISIBLE
         numeroIntroducido.text.clear()
     }
 

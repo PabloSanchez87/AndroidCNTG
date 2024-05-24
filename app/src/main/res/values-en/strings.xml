@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CntgApp EN</string>
+    <string name="mensaje_peso">Enter weight(kg):</string>
+    <string name="mensaje_altura">Enter height (m):</string>
+    <string name="boton_calcular">Calculate</string>
+    <string name="mensaje_victoria">Correct! U win! The number was %1$d</string>
+    <string name="mensaje_menor">You have failed! Try again. The number is smaller. Attempts remaining: %1$d.</string>
+    <string name="mensaje_mayor">You have failed! Try again. The number is higher. Attempts remaining: %1$d.</string>
+    <string name="mengaje_game_over">Game Over!! The correct number was %1$d. You have run out of attempts.</string>
+    <string name="mensaje_aviso_introduce">Enter a number. Please.</string>
+    <string name="mensaje_boton_probar">Try your luck</string>
+    <string name="mensaje_reiniciar">Restart</string>
+    <string name="mensaje_titulo">CNTG APP\nGuess a number between 1 and 100</string>
+</resources>
