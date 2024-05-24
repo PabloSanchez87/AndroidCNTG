@@ -89,23 +89,24 @@ class SearchNumberActivity : AppCompatActivity() {
     }
 
     private fun comprobarNumero() {
-        // Obtener el texto introducido por el usuario desde el EditText
-        val userInput = numeroIntroducido.text.toString()
+        // Guardamos el texto introducido por el usuario desde el EditText
+        val numeroIntroducidoUsuario = numeroIntroducido.text
 
-
-        if (userInput.isNotEmpty()) {            // Verificar si el usuario ha ingresado algún número
-            val userNumber = userInput.toInt()   // Convertir el texto del usuario a un número entero
-            intentos--                           // Decrementar el contador de intentos
-            val mensaje: String                   // Declaramos una variable mensaje
-            if (userNumber == numeroAleatorio) { // Comprobamos si el número ingresado por el usuario es igual al número aleatorio
+        // Comprobamos primero si el text no está Empty pq si tratamos de pasar a Int una cadena vacía nos saltará una Exception
+        // .toString() me guardaría la cadena vacía "" y con .toInt salta la excepción NumberFormatException.
+        if (numeroIntroducidoUsuario.isNotEmpty()) {                            // Verificar si el usuario ha ingresado algún número
+            val numeroUsuarioInt = numeroIntroducidoUsuario.toString().toInt()  // Convertir el texto del usuario a un número entero
+            intentos--                                      // Decrementar el contador de intentos
+            val mensaje: String                             // Declaramos una variable mensaje fuera de los condicionales.
+            if (numeroUsuarioInt == numeroAleatorio) {            // Comprobamos si el número ingresado por el usuario es igual al número aleatorio
                 mensaje = "Correcto! Has acertado! El número era $numeroAleatorio"
-                probarSuerte.isEnabled = false   // Deshabilitar el botón de "Probar suerte" ya que ya ha acertado.
-                reiniciarBoton.visibility = View.VISIBLE // Mostrar el botón de reinicio
+                probarSuerte.isEnabled = false              // Deshabilitar el botón de "Probar suerte" ya que ya ha acertado.
+                reiniciarBoton.visibility = View.VISIBLE    // Mostrar el botón de reinicio
             } else {
                 // Si no es correcto, determinar si el usuario tiene más intentos restantes
-                mensaje = if (intentos > 0) { // Guardamos en mensaje el texto a mostrar en TextView
-                    // Si quedan intentos, mostrar un mensaje indicando si el número es mayor o menor
-                    if (userNumber > numeroAleatorio) {
+                mensaje = if (intentos > 0) {               // Guardamos en mensaje el texto a mostrar en TextView
+                                                            // Si quedan intentos, mostrar un mensaje indicando si el número es mayor o menor
+                    if (numeroUsuarioInt > numeroAleatorio) {
                         "Has fallado! Vuelva a intentarlo. El número es menor. Intentos restantes: $intentos."
                     } else {
                         "Has fallado! Vuelva a intentarlo. El número es mayor. Intentos restantes: $intentos."
@@ -121,8 +122,8 @@ class SearchNumberActivity : AppCompatActivity() {
                 }
             }
 
-            resultadoTextView.text = mensaje    // Mostrar el mensaje en el TextView
-            numeroIntroducido.text.clear()      // Limpiar el contenido del EditText para el próximo intento
+            resultadoTextView.text = mensaje                // Mostrar el mensaje en el TextView
+            numeroIntroducido.text.clear()                  // Limpiar el contenido del EditText para el próximo intento
         } else {
             Toast.makeText(this, "Introduce un número", Toast.LENGTH_SHORT).show()
         }
