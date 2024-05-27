@@ -1,5 +1,7 @@
 package gal.cntg.cntgapp.creditos
 
+import android.content.Intent
+import android.net.Uri
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -32,6 +34,29 @@ class ParticipanteViewHolder(itemView: View): ViewHolder(itemView) {
     fun rellenarViewHolderParticipante (participante: Participante){
         nombre.text = participante.nombre
         // tratar los enlaces TAG - Vista setTag
+
+        //------------------------------------------
+        // Set the URLs as tags
+        iconoGH.tag = participante.urlGithub
+        iconoIn.tag = participante.urlLinkedin
+
+        // Set click listeners to open URLs
+        iconoGH.setOnClickListener {
+            val url = it.tag as String
+            if (url.isNotEmpty()) {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                it.context.startActivity(intent)
+            }
+        }
+
+        iconoIn.setOnClickListener {
+            val url = it.tag as String
+            if (url.isNotEmpty()) {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                it.context.startActivity(intent)
+            }
+        }
+
     }
 
 }

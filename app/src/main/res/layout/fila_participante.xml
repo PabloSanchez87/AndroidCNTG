@@ -9,7 +9,7 @@
         android:text="Pablo Sánchez"
         android:layout_width="0px"
         android:layout_height="match_parent"
-        android:layout_weight="8"
+        android:layout_weight="5"
         android:gravity="center">
     </TextView>
 
