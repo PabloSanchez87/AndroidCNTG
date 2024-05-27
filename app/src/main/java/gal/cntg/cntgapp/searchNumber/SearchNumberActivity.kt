@@ -9,7 +9,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import gal.cntg.cntgapp.R
 import gal.cntg.cntgapp.util.Constantes
-import kotlin.random.Random
+//import kotlin.random.Random
 
 class SearchNumberActivity : AppCompatActivity() {
     // Variables para el número aleatorio y los intentos restantes
@@ -17,7 +17,7 @@ class SearchNumberActivity : AppCompatActivity() {
     private var intentos: Int = Constantes.MAX_INTENTOS
 
     // Variables para las vistas
-    lateinit var numeroIntroducido: EditText
+    private lateinit var numeroIntroducido: EditText
     private lateinit var probarSuerte: Button
     private lateinit var resultadoTextView: TextView
     private lateinit var reiniciarBoton: Button
@@ -147,7 +147,8 @@ class SearchNumberActivity : AppCompatActivity() {
 
     private fun generarNumeroAleatorio(): Int {
         // Generar un número aleatorio dentro del rango definido en Constantes
-        return Random.nextInt(Constantes.MIN_RANDOM, Constantes.MAX_RANDOM + 1)
+        return (Constantes.MIN_RANDOM .. Constantes.MAX_RANDOM).random()
+        //return Random.nextInt(Constantes.MIN_RANDOM, Constantes.MAX_RANDOM + 1)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -159,4 +160,5 @@ class SearchNumberActivity : AppCompatActivity() {
             // Controlamos si tenemos que enseñar el botón de reiniciar o no.
         outState.putBoolean("reiniciarVisible", reiniciarBoton.visibility == View.VISIBLE)
     }
+
 }
