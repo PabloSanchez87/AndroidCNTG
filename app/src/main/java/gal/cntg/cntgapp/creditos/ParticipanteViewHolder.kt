@@ -31,7 +31,7 @@ class ParticipanteViewHolder(itemView: View): ViewHolder(itemView) {
 
     fun rellenarViewHolderParticipante (participante: Participante){
         nombre.text = participante.nombre
-        // TODO tratar los enlaces TAG - Vista setTag
+        // tratar los enlaces TAG - Vista setTag
     }
 
 }
