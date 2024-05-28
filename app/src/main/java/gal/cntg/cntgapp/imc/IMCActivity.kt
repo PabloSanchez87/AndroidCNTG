@@ -2,6 +2,8 @@ package gal.cntg.cntgapp.imc
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -15,6 +17,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import gal.cntg.cntgapp.R
 import gal.cntg.cntgapp.util.Constantes
+import kotlin.system.exitProcess
 
 class IMCActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -111,10 +114,10 @@ class IMCActivity : AppCompatActivity() {
             .setNegativeButton("NO") { dialog, _ ->  // en clase usamos { dialog, opcion --> nos obliga la definición de la funcion
                 dialog.cancel() // Cierra el diálogo cuando se pulsa el botón NO.
             }
-            // Configuración del botón positivo (SÍ).
-            .setPositiveButton("SÍ") { _, _ ->  // en clase usamos { dialog, opcion --> nos obliga la definición de la funcion
+            // Configuración del botón positivo (SÍ). // null, Se establece el listener más adelante.
+            .setPositiveButton("SÍ", null) /** { _, _ ->  // en clase usamos { dialog, opcion --> nos obliga la definición de la funcion
                 this.finish() // Finaliza la actividad actual cuando se pulsa el botón SÍ.
-            }
+            }**/
             // Configuración del botón neutral (Minimizar).
             .setNeutralButton("MINIMIZAR") { _, _ ->  // En clase usamos { dialog, opcion -->
                 moveTaskToBack(true) // Minimiza la actividad actual cuando se pulsa el botón MINIMIZAR.
@@ -124,8 +127,20 @@ class IMCActivity : AppCompatActivity() {
 
         // Muestra el AlertDialog en pantalla.
         alertDialog.show()
-    }
 
+        /** Esta parte la usamos para deshabilitar temporalmente la opción de sí, para no cerrar sin querer la app*/
+        // Obtener el botón "SÍ" y deshabilitarlo inicialmente.
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = false
+        // Usar un Handler para habilitar el botón después de 5 segundos.
+        Handler(Looper.getMainLooper()).postDelayed({
+            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = true
+        }, 3000) // 3 segundos
+        // Configurar el listener del botón "SÍ" después de crear el diálogo.
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+            finishAndRemoveTask()  // Cierra la actividad actual y elimina la tarea asociada.
+        }
+        /** *******************************************************************************************************/
+    }
 
     private fun limpiarFormulario() {
         findViewById<EditText>(R.id.Peso).text.clear()
