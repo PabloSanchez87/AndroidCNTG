@@ -1,4 +1,4 @@
-# # 📱 AndroidCNTG 
+# 📱 AndroidCNTG 
 
 > **Choose your language: | Elige tu idioma:**
 > 
