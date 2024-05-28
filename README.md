@@ -1,7 +1,9 @@
 # <span style="color: #a4c639;">AndroidCNTG</span>
 
-| [🇺🇸 English](#english-readme) | [🇪🇸 Español](#espanol-readme) |
-|---------------------------------|---------------------------------|
+> **Elige tu idioma:**
+> 
+> | [🇺🇸 English](#english-readme) | [🇪🇸 Español](#espanol-readme) |
+> |---------------------------------|---------------------------------|
 
 ## <a name="english-readme"></a> English README
 
@@ -38,6 +40,7 @@ Thank you for visiting my repository!
 
 --- 
 
+>[!NOTE]
 You can also find me on [LinkedIn](https://www.linkedin.com/in/pablosancheztorres)!
 
 ---
@@ -77,4 +80,5 @@ Repositorio: [AndroidCNTG](https://github.com/PabloSanchez87/AndroidCNTG)
 
 ---
 
+>[!NOTE]
 ¡También puedes encontrarme en [LinkedIn](https://www.linkedin.com/in/pablosancheztorres)!
