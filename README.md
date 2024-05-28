@@ -1,9 +1,11 @@
-# <span style="color: #a4c639;">AndroidCNTG</span>
+# # 📱 AndroidCNTG 
 
-> **Elige tu idioma:**
+> **Choose your language: | Elige tu idioma:**
 > 
 > | [🇺🇸 English](#english-readme) | [🇪🇸 Español](#espanol-readme) |
 > |---------------------------------|---------------------------------|
+
+
 
 ## <a name="english-readme"></a> English README
 
