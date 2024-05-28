@@ -1,4 +1,4 @@
-# AndroidCNTG
+# <span style="color: #a4c639;">AndroidCNTG</span>
 
 | [🇺🇸 English](#english-readme) | [🇪🇸 Español](#espanol-readme) |
 |---------------------------------|---------------------------------|
