@@ -1,8 +1,52 @@
 # AndroidCNTG
 
-Este repositorio contiene el código desarrollado durante el curso "Android Application Development" en el CENTRO. El curso cubre una variedad de temas relacionados con el desarrollo de aplicaciones Android.
+| [🇺🇸 English](#english-readme) | [🇪🇸 Español](#espanol-readme) |
+|---------------------------------|---------------------------------|
 
-## Módulos del Curso
+## <a name="english-readme"></a> English README
+
+This repository contains the code developed during the "Android Application Development" course at CENTRO. The course covers a variety of topics related to Android app development.
+
+### Course Modules
+
+The course is structured into several modules:
+
+1. **Introduction to Kotlin**
+2. **Control Flow Statements**
+3. **Functions & Object-Oriented Programming (OOP)**
+4. **Android Framework and Android Studio**
+5. **Creating User Interface**
+6. **Android Layouts, Styles, Theme, and Menus**
+7. **Snackbar, Activities, Android Intent, Alert Dialog, and Android Notifications**
+8. **Android Widgets**
+9. **Android Navigation Components**
+10. **Firebase Authentication and Database**
+11. **Location-Aware Apps: Using GPS and Google Maps**
+12. **App Testing and Publishing**
+
+### Certificate
+
+Upon completion of the course, I obtained the "Certified Android Application Developer AND-X01" certificate option. You can find more information about the course [here](https://cntg.xunta.gal/web/cntg).
+
+### Repository
+
+In this repository, you will find the source code and projects related to each module of the course. Feel free to explore the code and projects.
+
+Repository: [AndroidCNTG](https://github.com/PabloSanchez87/AndroidCNTG)
+
+Thank you for visiting my repository!
+
+--- 
+
+You can also find me on [LinkedIn](https://www.linkedin.com/in/pablosancheztorres)!
+
+---
+
+## <a name="espanol-readme"></a> README en Español
+
+Este repositorio contiene el código desarrollado durante el curso "Desarrollo de Aplicaciones Android" en CENTRO. El curso abarca una variedad de temas relacionados con el desarrollo de aplicaciones para Android.
+
+### Módulos del Curso
 
 El curso está estructurado en varios módulos:
 
@@ -19,14 +63,18 @@ El curso está estructurado en varios módulos:
 11. **Aplicaciones Sensibles a la Ubicación: Uso de GPS y Google Maps**
 12. **Pruebas y Publicación de Aplicaciones**
 
-## Certificado
+### Certificado
 
 Al finalizar el curso, obtuve la opción de certificado en "Desarrollador Certificado de Aplicaciones Android AND-X01". Puedes encontrar más información del curso en [este enlace](https://cntg.xunta.gal/web/cntg).
 
-## Repositorio
+### Repositorio
 
 En este repositorio, encontrarás el código fuente y los proyectos relacionados con cada módulo del curso. Siéntete libre de explorar el código y los proyectos.
 
 Repositorio: [AndroidCNTG](https://github.com/PabloSanchez87/AndroidCNTG)
 
 ¡Gracias por visitar mi repositorio!
+
+---
+
+¡También puedes encontrarme en [LinkedIn](https://www.linkedin.com/in/pablosancheztorres)!
