@@ -6,7 +6,7 @@
 
     <TextView
         android:id="@+id/nombreParticipante"
-        android:text="Pablo Sánchez"
+        android:text="Participantes"
         android:layout_width="0px"
         android:layout_height="match_parent"
         android:layout_weight="5"

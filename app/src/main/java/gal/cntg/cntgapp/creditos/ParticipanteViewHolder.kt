@@ -5,6 +5,7 @@ import android.net.Uri
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import gal.cntg.cntgapp.R
 import gal.cntg.cntgapp.kotlinBasico.Participante
@@ -40,12 +41,13 @@ class ParticipanteViewHolder(itemView: View): ViewHolder(itemView) {
         iconoGH.tag = participante.urlGithub
         iconoIn.tag = participante.urlLinkedin
 
+        /* Método Pablo
         // Set click listeners to open URLs
-        iconoGH.setOnClickListener {
-            val url = it.tag as String
+        iconoGH.setOnClickListener { //it sería la imagen que se ha tocado.(it - imagenTouch)
+            val url = it.tag as String // Casteo a String pq uri.parse(url) me pide un string.
             if (url.isNotEmpty()) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                it.context.startActivity(intent)
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)) // intent implícito
+                it.context.startActivity(intent) // para lanzar el intent debemos tener el contexto.
             }
         }
 
@@ -55,8 +57,24 @@ class ParticipanteViewHolder(itemView: View): ViewHolder(itemView) {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                 it.context.startActivity(intent)
             }
-        }
+        }*/
 
+        iconoGH.setOnClickListener(this::abrirWeb)
+        iconoIn.setOnClickListener(this::abrirWeb)
+
+    }
+
+    fun abrirWeb(view: View): Unit {
+        val url = view.tag as String
+        if (url.isNotEmpty()) {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            if (intent.resolveActivity(this.itemView.context.packageManager)!=null) { // Controlamos que tenga con que abrirlo.
+                view.context.startActivity(intent)
+            }
+        }else{
+            // Toast enlace no disponible.
+            Toast.makeText(view.context, "Enlace no disponible.", Toast.LENGTH_SHORT).show()
+        }
     }
 
 }

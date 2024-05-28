@@ -12,18 +12,16 @@
         android:layout_width="249dp"
         android:layout_height="54dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="550dp"
         android:ems="10"
         android:hint="@string/mensaje_peso"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.991" />
+        app:layout_constraintVertical_bias="0.156" />
 
     <EditText
         android:id="@+id/Altura"
@@ -34,20 +32,20 @@
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Peso"
-        app:layout_constraintVertical_bias="0.092" />
+        app:layout_constraintVertical_bias="0.141" />
 
     <Button
         android:id="@+id/Calcular"
-        android:onClick="calcularIMC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="calcularIMC"
         android:text="@string/boton_calcular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Altura"
-        app:layout_constraintVertical_bias="0.136" />
+        app:layout_constraintVertical_bias="0.154" />
 </androidx.constraintlayout.widget.ConstraintLayout>

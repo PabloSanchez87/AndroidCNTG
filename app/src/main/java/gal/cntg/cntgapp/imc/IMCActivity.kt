@@ -3,14 +3,18 @@ package gal.cntg.cntgapp.imc
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import gal.cntg.cntgapp.R
+import gal.cntg.cntgapp.util.Constantes
 
 class IMCActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,13 +60,76 @@ class IMCActivity : AppCompatActivity() {
         val intentResultado : Intent = Intent(this, ResultadoIMCActivity::class.java)
             // Le pasamos el objeto en el que estamos y el objeto de la clase a la que queremos ir.
 
-        //Guardo en el saco de intent el resultado que quiero parar a la otra activity.
+        // Guardo en el saco de intent el resultado que quiero parar a la otra activity.
         intentResultado.putExtra("IMC_RESULTADO", imc)
 
         startActivity(intentResultado) //lanzo a otra pantalla de resultado EXPLICITO.
         // El implicito sería por ejemplo el que generamos cuando compartimos algo y nos da donde
         // elegir si whatsapp, instagram,...
 
+    }
+
+    // Para dibujar mi menu en la appbar(toolbar) hay que sobreescribir el método onCreateOptionMenu
+    // Inflar --> es pasar de xml a visual. Se convierte en objeto.
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_imc, menu) // Vamos a inflar nuestro menu y anclarlo al padre.
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    // este método será invocado por Android cuando el usaurio toque alguna opcion del toolbar
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        Log.d("Cntg App","Ha tocado el menú.")
+
+        when (item.itemId){
+            R.id.opcionLimpiar ->{
+                Log.d("Cntg App","Ha tocado el limpiar.")
+                limpiarFormulario()
+            }
+
+
+            R.id.opcionSalir -> {
+                Log.d("Cntg App","Ha tocado el salir.")
+                salir()
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+
+    /**
+    finishAffinity()    // finishAffinity() --> Para salir de la aplicación
+    finish()            // finish() --> Para salir de la aplicación
+     **/
+    // Función para mostrar un AlertDialog usando el patrón Builder.
+    private fun salir() {
+        // Creación del AlertDialog.Builder y configuración de sus propiedades.
+        val alertDialog = AlertDialog.Builder(this)
+            .setTitle("SALIR") // Título del diálogo.
+            .setMessage("¿Desea salir?") // Mensaje del diálogo.
+            // Configuración del botón negativo (NO).
+            .setNegativeButton("NO") { dialog, _ ->  // en clase usamos { dialog, opcion --> nos obliga la definición de la funcion
+                dialog.cancel() // Cierra el diálogo cuando se pulsa el botón NO.
+            }
+            // Configuración del botón positivo (SÍ).
+            .setPositiveButton("SÍ") { _, _ ->  // en clase usamos { dialog, opcion --> nos obliga la definición de la funcion
+                this.finish() // Finaliza la actividad actual cuando se pulsa el botón SÍ.
+            }
+            // Configuración del botón neutral (Minimizar).
+            .setNeutralButton("MINIMIZAR") { _, _ ->  // En clase usamos { dialog, opcion -->
+                moveTaskToBack(true) // Minimiza la actividad actual cuando se pulsa el botón MINIMIZAR.
+            }
+            // Creación del AlertDialog a partir del Builder configurado.
+            .create()
+
+        // Muestra el AlertDialog en pantalla.
+        alertDialog.show()
+    }
+
+
+    private fun limpiarFormulario() {
+        findViewById<EditText>(R.id.Peso).text.clear()
+        findViewById<EditText>(R.id.Altura).text.clear()
     }
 
 
