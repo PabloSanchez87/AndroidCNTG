@@ -1,3 +1,5 @@
+
+
 package gal.cntg.cntgapp.productos
 
 import android.os.Bundle
@@ -5,6 +7,8 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import gal.cntg.cntgapp.R
 import gal.cntg.cntgapp.util.RedUtil
 import kotlinx.coroutines.launch
@@ -20,19 +24,25 @@ import retrofit2.converter.gson.GsonConverterFactory
  * */
 class ProductosActivity : AppCompatActivity() {
 
-    lateinit var productoService: ProductoService   // este objeto instanciado es el que se encargara de traernos los datos.
-                                                    // se encarga de hacerlo retrofit
-
+    lateinit var productoService: ProductoService       // este objeto instanciado es el que se encargara de traernos los datos.
+                                                        // se encarga de hacerlo retrofit
     lateinit var listadoProductos: ListadoProductos
+    lateinit var recyclerView: RecyclerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_productos)
 
+        recyclerView = findViewById(R.id.recyclerViewProductos)
+
+        //Tengo que hacerlo fuera del if, sino no me reconoce el this.
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
         // Crear el productoService, que es el objeto encargado de traerse los datos como nos indica Retrofit
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://my-json-server.typicode.com/") //aquí estamos poniendo la base de la url, lo que falta en el get del interface
-                // Hemos añadido otra libreria de terceros com.squareup.retrofit2 el paquete que se llama "converter-gson"
-                // para poder usar el GsonConverterFactory.create()
+            .baseUrl("https://my-json-server.typicode.com/")//aquí estamos poniendo la base de la url, lo que falta en el get del interface
+                                                            // Hemos añadido otra libreria de terceros com.squareup.retrofit2 el paquete que se llama "converter-gson"
+                                                            // para poder usar el GsonConverterFactory.create()
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -43,27 +53,31 @@ class ProductosActivity : AppCompatActivity() {
             // Tenemos que definir una corutina (pequeño programa paralelo que se encarga de la comunicación HTTP.
             lifecycleScope.launch {
                 // aquí pedimos los datos, pero mientras nuestro programa sigue. Por eso estamos usando el lifecycleScope
-                Log.d("CNTG APP", "Pidiendo datos")
-
+                //Log.d("CNTG APP", "Pidiendo datos")
                 listadoProductos = productoService.obtenerProductos()
-                Log.d("CNTG APP", "Hemos recibido ${listadoProductos.size} productos")
+                //Log.d("CNTG APP", "Hemos recibido ${listadoProductos.size} productos")
+
+
+                val adapter = ProductoAdapter(listadoProductos)
+                recyclerView.adapter = adapter
+
 
                 //it es una variable auxiliar, predefinida en Kotlin
                 // para cuando recorro una colección (itero)
                 // que va asumiuendo el valor de cada elemento de la colección
-                listadoProductos.forEach {
-                    Log.d("ForEach", "Producto ${it.toString()}")
-                }
+                //listadoProductos.forEach {
+                //    Log.d("ForEach", "Producto ${it.toString()}")
+                //}
             }
-            Log.d("CNTG APP", "onCreate")
+            //Log.d("CNTG APP", "onCreate")
         } else {
-            Toast.makeText(this,"CNTG APP. Sin conexión a internet", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "CNTG APP. Sin conexión a internet", Toast.LENGTH_SHORT).show()
         }
     }
 
+
     override fun onStart() {
-        Log.d("CNTG APP", "onStart")
+        Log.d("CNTG APP", "en Start")
         super.onStart()
     }
 }
-

@@ -19,6 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CntgApp"
         tools:targetApi="31">
+
+
         <activity
             android:name=".productos.ProductosActivity"
             android:exported="true" >
@@ -45,7 +47,7 @@
 
         <activity
             android:name=".searchNumber.SearchNumberActivity"
-            android:exported="true" />
+            android:exported="false" />
         <!--
 <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
