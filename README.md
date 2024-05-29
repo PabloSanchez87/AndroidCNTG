@@ -1,4 +1,8 @@
-# 📱 AndroidCNTG 
+<h1>
+  <img src="./android.svg" alt="Logo" width="40""/>
+  Android CNTG
+  <img src="./android.svg" alt="Logo" width="40""/>
+</h1>
 
 > **Choose your language: | Elige tu idioma:**
 > 
