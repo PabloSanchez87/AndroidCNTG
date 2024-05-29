@@ -79,26 +79,21 @@ class IMCActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    // este método será invocado por Android cuando el usaurio toque alguna opcion del toolbar
+    // este método será invocado por Android cuando el usuario toque alguna opcion del toolbar
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         Log.d("Cntg App","Ha tocado el menú.")
-
         when (item.itemId){
             R.id.opcionLimpiar ->{
                 Log.d("Cntg App","Ha tocado el limpiar.")
                 limpiarFormulario()
             }
-
-
             R.id.opcionSalir -> {
                 Log.d("Cntg App","Ha tocado el salir.")
                 salir()
             }
         }
-
         return super.onOptionsItemSelected(item)
     }
-
 
     /**
     finishAffinity()    // finishAffinity() --> Para salir de la aplicación
@@ -119,16 +114,14 @@ class IMCActivity : AppCompatActivity() {
                 this.finish() // Finaliza la actividad actual cuando se pulsa el botón SÍ.
             }**/
             // Configuración del botón neutral (Minimizar).
-            .setNeutralButton("MINIMIZAR") { _, _ ->  // En clase usamos { dialog, opcion -->
-                moveTaskToBack(true) // Minimiza la actividad actual cuando se pulsa el botón MINIMIZAR.
-            }
-            // Creación del AlertDialog a partir del Builder configurado.
-            .create()
+            .setNeutralButton("MINIMIZAR") { _, _ ->     // En clase usamos { dialog, opcion -->
+                moveTaskToBack(true)                 // Minimiza la actividad actual cuando se pulsa el botón MINIMIZAR.
+            }                                                // Pero no se está destruyendo realmente.
 
-        // Muestra el AlertDialog en pantalla.
-        alertDialog.show()
+            .create()// Creación del AlertDialog a partir del Builder configurado.
+        alertDialog.show() // Muestra el AlertDialog en pantalla.
 
-        /** Esta parte la usamos para deshabilitar temporalmente la opción de sí, para no cerrar sin querer la app*/
+        /** Esta parte la usamos para deshabilitar temporalmente la opción de sí, para no cerrar sin querer la app**/
         // Obtener el botón "SÍ" y deshabilitarlo inicialmente.
         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = false
         // Usar un Handler para habilitar el botón después de 5 segundos.
@@ -137,15 +130,14 @@ class IMCActivity : AppCompatActivity() {
         }, 3000) // 3 segundos
         // Configurar el listener del botón "SÍ" después de crear el diálogo.
         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
-            finishAndRemoveTask()  // Cierra la actividad actual y elimina la tarea asociada.
+            //finishAndRemoveTask()  // Cierra la actividad actual y elimina la tarea asociada.
+            finish() // se destruye realmente, aunq quede un residuo en el manager task de android del teléfono.
         }
-        /** *******************************************************************************************************/
+        /*********************************************************************************************************/
     }
 
     private fun limpiarFormulario() {
         findViewById<EditText>(R.id.Peso).text.clear()
         findViewById<EditText>(R.id.Altura).text.clear()
     }
-
-
 }
