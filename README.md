@@ -1,5 +1,5 @@
 <h1>
-  <img src="./icons8-android-os.svg" alt="Logo" width="40""/>
+  <img src="./64px-Kotlin_Icon.svg.png" alt="Logo" width="28""/>
   Android CNTG
   <img src="./icons8-android-os.svg" alt="Logo" width="40""/>
 </h1>
