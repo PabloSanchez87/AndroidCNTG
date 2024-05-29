@@ -1,7 +1,7 @@
 <h1>
-  <img src="./64px-Kotlin_Icon.svg.png" alt="Logo" width="28""/>
-  Android CNTG
-  <img src="./icons8-android-os.svg" alt="Logo" width="40""/>
+  <img src="./icons8-android-os.svg" width="40""/>
+  Android - Kotlin    
+  <img src="./64px-Kotlin_Icon.svg.png" width="28""/>
 </h1>
 
 > **Choose your language: | Elige tu idioma:**
@@ -13,7 +13,7 @@
 
 ## <a name="english-readme"></a> English README
 
-This repository contains the code developed during the "Android Application Development" course at CENTRO. The course covers a variety of topics related to Android app development.
+This repository contains the code developed during the "Android Application Development" course. The course covers a variety of topics related to Android app development.
 
 ### Course Modules
 
@@ -34,9 +34,11 @@ The course is structured into several modules:
 
 ### Certificate
 
-Upon completion of the course, I obtained the "Certified Android Application Developer AND-X01" certificate option. You can find more information about the course [here](https://github.com/PabloSanchez87/AndroidCNTG/blob/main/AndroidApplicationDevelopment_CNTG.pdf).
+Upon completion of the course, I obtained the "Certified Android Application Developer AND-X01" certificate option. You can find more information about the course [here](Android-Application-Development-v12_Course-Outline.pdf).
 
 The course was provided by Centro de Novas Tecnoloxías de Galicia(CNTG). More details about the institution can be found on their [website](https://cntg.xunta.gal/web/cntg).
+
+[![Descripción de la imagen](./logo_cntg_big.png)](https://cntg.xunta.gal/web/cntg)
 
 ### Repository
 
@@ -55,7 +57,7 @@ You can also find me on [LinkedIn](https://www.linkedin.com/in/pablosancheztorre
 
 ## <a name="espanol-readme"></a> README en Español
 
-Este repositorio contiene el código desarrollado durante el curso "Desarrollo de Aplicaciones Android" en CENTRO. El curso abarca una variedad de temas relacionados con el desarrollo de aplicaciones para Android.
+Este repositorio contiene el código desarrollado durante el curso "Desarrollo de Aplicaciones Android". El curso abarca una variedad de temas relacionados con el desarrollo de aplicaciones para Android.
 
 ### Módulos del Curso
 
@@ -76,9 +78,11 @@ El curso está estructurado en varios módulos:
 
 ### Certificado
 
-Al finalizar el curso, obtuve la opción de certificado en "Desarrollador Certificado de Aplicaciones Android AND-X01". Puedes encontrar más información del curso en [este enlace](https://cntg.xunta.gal/web/cntg).
+Al finalizar el curso, obtuve la opción de certificado en "Desarrollador Certificado de Aplicaciones Android AND-X01". Puedes encontrar más información del curso en [este enlace](Android-Application-Development-v12_Course-Outline.pdf).
 
 El curso fue impartido por Centro de Novas Tecnoloxías de Galicia. Más detalles sobre la institución se pueden encontrar en su [sitio web](https://cntg.xunta.gal/web/cntg).
+
+[![Descripción de la imagen](./logo_cntg_big.png)](https://cntg.xunta.gal/web/cntg)
 
 ### Repositorio
 
