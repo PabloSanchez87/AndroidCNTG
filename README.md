@@ -30,7 +30,9 @@ The course is structured into several modules:
 
 ### Certificate
 
-Upon completion of the course, I obtained the "Certified Android Application Developer AND-X01" certificate option. You can find more information about the course [here](https://cntg.xunta.gal/web/cntg).
+Upon completion of the course, I obtained the "Certified Android Application Developer AND-X01" certificate option. You can find more information about the course [here](https://github.com/PabloSanchez87/AndroidCNTG/blob/main/AndroidApplicationDevelopment_CNTG.pdf).
+
+The course was provided by Centro de Novas Tecnoloxías de Galicia(CNTG). More details about the institution can be found on their [website](https://cntg.xunta.gal/web/cntg).
 
 ### Repository
 
@@ -71,6 +73,8 @@ El curso está estructurado en varios módulos:
 ### Certificado
 
 Al finalizar el curso, obtuve la opción de certificado en "Desarrollador Certificado de Aplicaciones Android AND-X01". Puedes encontrar más información del curso en [este enlace](https://cntg.xunta.gal/web/cntg).
+
+El curso fue impartido por Centro de Novas Tecnoloxías de Galicia. Más detalles sobre la institución se pueden encontrar en su [sitio web](https://cntg.xunta.gal/web/cntg).
 
 ### Repositorio
 
