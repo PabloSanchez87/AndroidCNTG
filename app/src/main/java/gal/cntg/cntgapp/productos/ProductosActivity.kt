@@ -4,6 +4,8 @@ package gal.cntg.cntgapp.productos
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import gal.cntg.cntgapp.R
 import gal.cntg.cntgapp.util.RedUtil
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -28,6 +31,7 @@ class ProductosActivity : AppCompatActivity() {
                                                         // se encarga de hacerlo retrofit
     lateinit var listadoProductos: ListadoProductos
     lateinit var recyclerView: RecyclerView
+    lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,6 +73,11 @@ class ProductosActivity : AppCompatActivity() {
                 //listadoProductos.forEach {
                 //    Log.d("ForEach", "Producto ${it.toString()}")
                 //}
+
+                // Estamos colocando una barra de de progreso de carga, volviendo invisible al acabar.
+                // Esta inicializada con un lateinit var al principio.
+                this@ProductosActivity.progressBar = findViewById<ProgressBar>(R.id.barraProgreso)
+                this@ProductosActivity.progressBar.visibility = View.INVISIBLE
             }
             //Log.d("CNTG APP", "onCreate")
         } else {
