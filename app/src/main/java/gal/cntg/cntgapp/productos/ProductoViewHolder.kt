@@ -5,6 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
+import com.squareup.picasso.Picasso
 import gal.cntg.cntgapp.R
 
 class ProductoViewHolder(itemView: View) : ViewHolder(itemView) {
@@ -19,8 +20,13 @@ class ProductoViewHolder(itemView: View) : ViewHolder(itemView) {
         idView.text = "ID: " + item.id.toString()
 
         // Cargar la imagen utilizando Glide desde la URL proporcionada en el JSON
-        Glide.with(itemView.context)
+        /* Glide.with(itemView.context)
             .load(item.imageUrl) // Aquí asumimos que item.imageUrl contiene la URL de la imagen
+            .into(imageView) */
+
+        //Picasso Library --> 'com.squareup.picasso:picasso:(insert latest version)
+        Picasso.get() // get descarga la imagen
+            .load(item.imageUrl)
             .into(imageView)
     }
 }
