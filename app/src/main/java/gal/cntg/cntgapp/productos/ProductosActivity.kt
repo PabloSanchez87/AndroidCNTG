@@ -33,10 +33,10 @@ class ProductosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_productos)
 
-        recyclerView = findViewById(R.id.recyclerViewProductos)
+
 
         //Tengo que hacerlo fuera del if, sino no me reconoce el this.
-        recyclerView.layoutManager = LinearLayoutManager(this)
+
 
         // Crear el productoService, que es el objeto encargado de traerse los datos como nos indica Retrofit
         val retrofit = Retrofit.Builder()
@@ -57,7 +57,8 @@ class ProductosActivity : AppCompatActivity() {
                 listadoProductos = productoService.obtenerProductos()
                 //Log.d("CNTG APP", "Hemos recibido ${listadoProductos.size} productos")
 
-
+                this@ProductosActivity.recyclerView = findViewById(R.id.recyclerViewProductos)
+                recyclerView.layoutManager = LinearLayoutManager(this@ProductosActivity)
                 val adapter = ProductoAdapter(listadoProductos)
                 recyclerView.adapter = adapter
 
