@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import gal.cntg.cntgapp.R
 
-class ProductoAdapter(val itemList: List<ListadoProductosItem>) : Adapter<ProductoViewHolder>() {
+class ProductosAdapter(var itemList: List<ListadoProductosItem>) : Adapter<ProductoViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_producto, parent, false)
         return ProductoViewHolder(view)

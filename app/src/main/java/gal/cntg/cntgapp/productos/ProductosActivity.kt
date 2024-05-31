@@ -11,12 +11,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.slider.Slider
 import gal.cntg.cntgapp.R
 import gal.cntg.cntgapp.util.RedUtil
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import kotlin.math.roundToInt
 
 /**
  * Author: Pablo Sánchez.
@@ -32,15 +33,12 @@ class ProductosActivity : AppCompatActivity() {
     lateinit var listadoProductos: ListadoProductos
     lateinit var recyclerView: RecyclerView
     lateinit var progressBar: ProgressBar
+    lateinit var slider: Slider
+    lateinit var productosAdapter: ProductosAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_productos)
-
-
-
-        //Tengo que hacerlo fuera del if, sino no me reconoce el this.
-
 
         // Crear el productoService, que es el objeto encargado de traerse los datos como nos indica Retrofit
         val retrofit = Retrofit.Builder()
@@ -63,7 +61,7 @@ class ProductosActivity : AppCompatActivity() {
 
                 this@ProductosActivity.recyclerView = findViewById(R.id.recyclerViewProductos)
                 recyclerView.layoutManager = LinearLayoutManager(this@ProductosActivity)
-                val adapter = ProductoAdapter(listadoProductos)
+                val adapter = ProductosAdapter(listadoProductos)
                 recyclerView.adapter = adapter
 
 
@@ -74,15 +72,59 @@ class ProductosActivity : AppCompatActivity() {
                 //    Log.d("ForEach", "Producto ${it.toString()}")
                 //}
 
+                //TODO INICIAR SLIDER y FILTRAR LA LISTA CON EL PRECIO MEDIO CALCULADO
+                productosAdapter = ProductosAdapter(listadoProductos)
+                recyclerView.adapter = productosAdapter
+
                 // Estamos colocando una barra de de progreso de carga, volviendo invisible al acabar.
                 // Esta inicializada con un lateinit var al principio.
                 this@ProductosActivity.progressBar = findViewById<ProgressBar>(R.id.barraProgreso)
                 this@ProductosActivity.progressBar.visibility = View.INVISIBLE
+
+                actualizarPostCarga()
             }
             //Log.d("CNTG APP", "onCreate")
         } else {
             Toast.makeText(this, "CNTG APP. Sin conexión a internet", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun actualizarPostCarga() {
+        // Inicializamos el slider.
+        this.slider = findViewById(R.id.sliderprecio)
+        this.slider.visibility = View.VISIBLE
+
+        // Obtenemos el producto más caro.
+        var productoMasCaro = listadoProductos.maxBy { it.price.toFloat() } // hacemos un casting to float. Exite tmb un maxByOrNull
+
+        // Obtenemos el producto más barato.
+        var productoMasBarato = listadoProductos.minBy { it.price.toFloat() } // hacemos un casting to float. Exite tmb un minByOrNull
+
+        // Obtenemos el valor del producto medio.
+        var precioMedio = listadoProductos.map { it.price .toFloat() }.average() // it.price .toFloat() me devuelve una lista
+                                                                                // y la lista tiene un método average. Devuelve un Double
+
+        slider.value = productoMasCaro.price.toFloat() // Valor por defecto donde aparece ubicado
+        slider.valueFrom = productoMasBarato.price.toFloat()// valor mínimo del slider
+        slider.valueTo = productoMasCaro.price.toFloat() // Valor máximo del slider
+
+        // Este método dibuja la bandera. El valor donde se para el slider. Lo redondeamos para que sea más visible.
+        slider.setLabelFormatter{
+          "${it.roundToInt()} precio máx"
+        }
+
+        // para cuando cambie el slider de valor. Recibe 3 valores. El propio slider, el valor y si ha sido el usuario.
+        // Estamos invocando la función abstracto void onValueChange por dentro.
+        slider.addOnChangeListener{ slider, valor, isUser ->
+            Log.d("CNTG APP", "Valor actual = $valor $isUser")
+            var listadoProductosFiltrados = ListadoProductos() // lista auxiliar.
+            listadoProductos.filter { producto -> producto.price.toFloat() <= valor }. toCollection(listadoProductosFiltrados)
+                                                                                // recibe un predicado que responde si si o no.
+                                                                                // nos devuelve una lista según el filtro.
+            productosAdapter.itemList = listadoProductosFiltrados
+            productosAdapter.notifyDataSetChanged() //los datos de la lista han cambiado, repíntate
+        }
+
     }
 
 
