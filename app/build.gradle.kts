@@ -33,6 +33,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    //con esto, habilitamos la vinculación de vistas automáticas entre XML y Activity
+    // (evitamos el findViewById)
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 // Dependencias. Librerías de terceros o son extras.
