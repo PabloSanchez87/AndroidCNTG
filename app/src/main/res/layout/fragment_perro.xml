@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageViewPerro"
         android:layout_width="300dp"
         android:layout_height="400dp"
         android:scaleType="fitXY"
@@ -24,7 +24,7 @@
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewPerro" />
 
     <!-- android:scaleType="fitXY"  Si la foto es más pequeña rellena lo que falte-->
 </androidx.constraintlayout.widget.ConstraintLayout>
