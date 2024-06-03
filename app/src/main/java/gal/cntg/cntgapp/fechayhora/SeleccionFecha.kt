@@ -34,7 +34,7 @@ class SeleccionFecha: DialogFragment(), OnDateSetListener {
     }
     override fun onDateSet(view: DatePicker?, anio: Int, mes: Int, dia: Int) {
         var fechaFinal = "$dia/${mes+1}/$anio" //OJO --> El mes lo devuelve del 0 a 11
-        Log.d("CNTG APP", "FECHA SELECIONADA: $fechaFinal")
+        Log.d("CNTG_APP", "FECHA SELECIONADA: $fechaFinal")
         (activity as SeleccionFechaYHoraActivity).actualizarFechaSeleccionada(fechaFinal)
     }
 

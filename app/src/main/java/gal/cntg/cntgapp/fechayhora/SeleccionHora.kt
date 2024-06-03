@@ -59,6 +59,6 @@ class SeleccionHora: DialogFragment(), OnTimeSetListener {
         var ventanaPadre = activity as SeleccionFechaYHoraActivity
         ventanaPadre.actualizarHoraSeleccionada(horaFinal)
 
-        Log.d("CNTG APP", "HORA FINAL = $horaFinal")
+        Log.d("CNTG_APP", "HORA FINAL = $horaFinal")
     }
 }

@@ -31,12 +31,11 @@ class SeleccionFechaYHoraActivity: AppCompatActivity(), OnFocusChangeListener {
 
     // tanto si las cajas ganan el foco, como si lo pierden, se invoca a esta función.
     override fun onFocusChange(caja: View?, tieneFoco: Boolean) {
-
         if (tieneFoco) {
-            Log.d("CNTG APP", "Ha cambiado el foco")
+            Log.d("CNTG_APP", "Ha cambiado el foco")
             when (caja?.id){
                 R.id.cajaHora -> {
-                    Log.d("CNTG APP", "La caja hora ha ganado el foco.")
+                    Log.d("CNTG_APP", "La caja hora ha ganado el foco.")
 
                     //Creamos el diálogo/fragmento.
                     val dialogoFragmentoReloj: DialogFragment = SeleccionHora()
@@ -45,7 +44,7 @@ class SeleccionFechaYHoraActivity: AppCompatActivity(), OnFocusChangeListener {
                     dialogoFragmentoReloj.show(supportFragmentManager, "RELOJ")
                 }
                 R.id.cajaFecha -> {
-                    Log.d("CNTG APP", "La caja fecha ha ganado el foco.")
+                    Log.d("CNTG_APP", "La caja fecha ha ganado el foco.")
                     //Creamos el diálogo/fragmento.
                     val dialogoFragmentoCalendario: DialogFragment = SeleccionFecha()
                     // Lo mostramos/visualizamos
@@ -53,7 +52,6 @@ class SeleccionFechaYHoraActivity: AppCompatActivity(), OnFocusChangeListener {
                     dialogoFragmentoCalendario.show(supportFragmentManager, "FECHA")
                 }
             }
-
         }
     }
 
