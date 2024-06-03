@@ -9,12 +9,7 @@ import android.util.Log
 import android.widget.TimePicker
 import androidx.fragment.app.DialogFragment
 
-/**
- * Creamos esta clase nueva para crear los DialogFragment, por eso debe implementearla.
- * Tenemos que sobreescribir el constructor.
- * Cuando tengamos el foco sobre la caja, usaremos esta clase para mostrarle el DialogFragment
- * que corresponda fecha u hora en este caso.
- * */
+
 class SeleccionHora: DialogFragment(), OnTimeSetListener {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

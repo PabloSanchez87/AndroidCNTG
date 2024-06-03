@@ -46,6 +46,11 @@ class SeleccionFechaYHoraActivity: AppCompatActivity(), OnFocusChangeListener {
                 }
                 R.id.cajaFecha -> {
                     Log.d("CNTG APP", "La caja fecha ha ganado el foco.")
+                    //Creamos el diálogo/fragmento.
+                    val dialogoFragmentoCalendario: DialogFragment = SeleccionFecha()
+                    // Lo mostramos/visualizamos
+                    // supportFragmentManager es el encargado de gestionar el ciclo de vida del fragmento.
+                    dialogoFragmentoCalendario.show(supportFragmentManager, "FECHA")
                 }
             }
 
@@ -56,5 +61,9 @@ class SeleccionFechaYHoraActivity: AppCompatActivity(), OnFocusChangeListener {
     // Lo usamos para poder tener acceso al contexto en otra clase.
     fun actualizarHoraSeleccionada(hora:String){
         this.binding.cajaHora.setText(hora)
+    }
+
+    fun actualizarFechaSeleccionada(fecha:String){
+        this.binding.cajaFecha.setText(fecha)
     }
 }
