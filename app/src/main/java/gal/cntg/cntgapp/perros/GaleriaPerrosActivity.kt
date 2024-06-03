@@ -1,4 +1,5 @@
 package gal.cntg.cntgapp.perros
+
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
@@ -14,8 +15,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class GaleriaPerrosActivity : AppCompatActivity() {
 
-    var raza:String = ""
-    lateinit var textRazaPerro:TextView
+    var raza: String = ""
+    lateinit var textRazaPerro: TextView
     lateinit var viewPager2: ViewPager2
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,13 +31,13 @@ class GaleriaPerrosActivity : AppCompatActivity() {
 
         // Tenemos que hacer la búsqueda. Generar la busqueda.
 
-        if (RedUtil.hayInternet(this)){
+        if (RedUtil.hayInternet(this)) {
             var retrofit = Retrofit.Builder()
                 .baseUrl("https://dog.ceo/")
                 .addConverterFactory(GsonConverterFactory.create())  // Estamos deserializando pasando texto a objetos.
                 .build()
 
-            var perroService:PerrosServices = retrofit.create(PerrosServices::class.java)
+            var perroService: PerrosServices = retrofit.create(PerrosServices::class.java)
 
             /**
              * lifecycleScope: Buscar más información.
@@ -44,8 +45,9 @@ class GaleriaPerrosActivity : AppCompatActivity() {
              * Cuando se abandona una actividad onStop, la tarea asyncrona asociada tmb es eliminada.
              * */
             lifecycleScope.launch {
-               var listadoPerrosDescargado = perroService.listarPerrosPorRaza(this@GaleriaPerrosActivity.raza)
-                Log.d("CNTG APP", "Hemos recibido ${listadoPerrosDescargado.message.size} fotos" )
+                var listadoPerrosDescargado =
+                    perroService.listarPerrosPorRaza(this@GaleriaPerrosActivity.raza)
+                Log.d("CNTG APP", "Hemos recibido ${listadoPerrosDescargado.message.size} fotos")
                 var adapterFragmentosPerros = AdapterFragmentosPerros(this@GaleriaPerrosActivity)
                 adapterFragmentosPerros.listadoPerros = listadoPerrosDescargado
                 viewPager2.adapter = adapterFragmentosPerros

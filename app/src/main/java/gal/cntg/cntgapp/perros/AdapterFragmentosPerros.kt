@@ -10,9 +10,10 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
  * En esta clase va a proporcionar los items del Carrusel a su ViewPager asociado
  * */
 // FragmentStateAdapter gestiona el ciclo de vida del adapter
-class AdapterFragmentosPerros (var fragmentActivity: FragmentActivity): FragmentStateAdapter(fragmentActivity){
+class AdapterFragmentosPerros(var fragmentActivity: FragmentActivity) :
+    FragmentStateAdapter(fragmentActivity) {
 
-    var listadoPerros:ListadoPerros ?= null
+    var listadoPerros: ListadoPerros? = null
 
 
     // TEnemos que sobreescribir estos métodos. // Cuantos tiene que tocar y pasarselos.
@@ -22,7 +23,7 @@ class AdapterFragmentosPerros (var fragmentActivity: FragmentActivity): Fragment
     }
 
     override fun createFragment(position: Int): Fragment {
-        var fragmentoPerro: Fragment ?= null // representa el item del carrusel.
+        var fragmentoPerro: Fragment? = null // representa el item del carrusel.
 
         fragmentoPerro = FragmentoPerro() // --> Rellenamos el fragment.
 
@@ -36,7 +37,8 @@ class AdapterFragmentosPerros (var fragmentActivity: FragmentActivity): Fragment
         bundle.putString("url_foto", urlFoto)
         bundle.putString("texto_leyenda", textoLeyendaContador)
 
-        fragmentoPerro.arguments = bundle //le pasamos el "saco/bundle" para tener acceso desde FragmentoPerros.kt
+        fragmentoPerro.arguments =
+            bundle //le pasamos el "saco/bundle" para tener acceso desde FragmentoPerros.kt
 
 
         return fragmentoPerro

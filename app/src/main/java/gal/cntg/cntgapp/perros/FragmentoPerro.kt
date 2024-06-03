@@ -11,7 +11,7 @@ import com.squareup.picasso.Picasso
 import gal.cntg.cntgapp.R
 
 // Tenemos que hacer que herede de Fragment
-class FragmentoPerro: Fragment() {
+class FragmentoPerro : Fragment() {
     // Redefinimos métodos
     // en este método, preparamos la vista del fragmento.
     override fun onCreateView(
@@ -25,7 +25,7 @@ class FragmentoPerro: Fragment() {
         // Tenemos que inflar el fragmentoPerro.
         //      "container" sería el padre.
         //      "false" para que no se actualice en el momento, que podamos manipularlo.
-        var itemCarrusel:View?= inflater.inflate(R.layout.fragment_perro, container, false)
+        var itemCarrusel: View? = inflater.inflate(R.layout.fragment_perro, container, false)
 
         val urlFoto = arguments?.getString("url_foto")
         val textoLeyenda = arguments?.getString("texto_leyenda")
