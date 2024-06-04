@@ -97,7 +97,10 @@ class MenuPrincipalActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                 Notificaciones.lanzarNotificacion(this)
             }
         }
-        if (!esNoti) {
+        if(esNoti){
+           esNoti = false
+        }
+        else  {
             var intent = Intent(this, objetoClass)
             startActivity(intent)
         }
@@ -106,6 +109,4 @@ class MenuPrincipalActivity : AppCompatActivity(), NavigationView.OnNavigationIt
 
         return true
     }
-
-
 }
