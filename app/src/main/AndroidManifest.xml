@@ -16,6 +16,9 @@
         android:theme="@style/Theme.CntgApp"
         tools:targetApi="31">
         <activity
+            android:name=".tabs.TabsActivity"
+            android:exported="false" />
+        <activity
             android:name=".busquedaActivity.BusquedaActivity"
             android:exported="false" />
         <activity
@@ -27,11 +30,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".webview.WebActivity"
             android:exported="true"> <!-- esto significa que es exportable desde fuera, que sea visible para el ecosistema de android -->
-            <!-- Queremos que con el intent implicito nos pregunte con que herramienta lo abre.
+            <!--
+            Queremos que con el intent implicito nos pregunte con que herramienta lo abre.
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -44,9 +47,9 @@
                 <data
                     android:host="cntg.xunta.gal"
                     android:scheme="https" />
-            </intent-filter>  -->
+            </intent-filter>
+            -->
         </activity>
-
         <activity
             android:name=".fechayhora.SeleccionFechaYHoraActivity"
             android:exported="false" />

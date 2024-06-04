@@ -16,6 +16,7 @@ import gal.cntg.cntgapp.imc.IMCActivity
 import gal.cntg.cntgapp.perros.PerrosActivity
 import gal.cntg.cntgapp.productos.ProductosActivity
 import gal.cntg.cntgapp.searchNumber.SearchNumberActivity
+import gal.cntg.cntgapp.tabs.TabsActivity
 import gal.cntg.cntgapp.versiones.VersionesActivity
 import gal.cntg.cntgapp.webview.WebActivity
 
@@ -89,9 +90,10 @@ class MenuPrincipalActivity : AppCompatActivity(), NavigationView.OnNavigationIt
             6 -> {objetoClass = SearchNumberActivity::class.java}
             7 -> {objetoClass = PerrosActivity::class.java}
             8 -> {objetoClass = ProductosActivity::class.java}
+            9 -> {objetoClass = TabsActivity::class.java}
         }
-        //var intent = Intent(this,objetoClass )
-        //startActivity(intent)
+        var intent = Intent(this,objetoClass )
+        startActivity(intent)
 
         this.drawerLayout.closeDrawers() // Cierro el menú sea cual sea la opción tocada.
 

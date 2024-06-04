@@ -66,6 +66,12 @@
                 android:orderInCategory="8"
                 android:title="Listado de Productos">
             </item>
+            <item
+                app:showAsAction="always"
+                android:icon="@drawable/rounded_arrow_forward_24"
+                android:orderInCategory="9"
+                android:title="Tabs">
+            </item>
         </menu>
     </item>
 </menu>
