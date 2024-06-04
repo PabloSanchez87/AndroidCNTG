@@ -97,6 +97,8 @@ class MenuPrincipalActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                 Notificaciones.lanzarNotificacion(this)
             }
         }
+        // Si ha pulsado notificación reseteamos el valor de la flag esNoti
+        // para que se pueda seguir usando el menú aunque no entres en la notificación.
         if(esNoti){
            esNoti = false
         }
