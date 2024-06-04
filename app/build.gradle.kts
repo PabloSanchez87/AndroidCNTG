@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "gal.cntg.cntgapp"
-        minSdk = 27 // Versión minima
+        minSdk = 27 // Versión minima v8
         targetSdk = 34 // Versión con la que hacemos las pruebas
         versionCode = 1 // número natural por cada versión del código por la que vayamos
         versionName = "1.0" // String que puede ser cualquier cosa.

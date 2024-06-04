@@ -23,6 +23,7 @@ import gal.cntg.cntgapp.webview.WebActivity
 
 class MenuPrincipalActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    var esNoti = false
     lateinit var drawerLayout: DrawerLayout
     lateinit var navigationView: NavigationView
 
@@ -91,11 +92,17 @@ class MenuPrincipalActivity : AppCompatActivity(), NavigationView.OnNavigationIt
             7 -> {objetoClass = PerrosActivity::class.java}
             8 -> {objetoClass = ProductosActivity::class.java}
             9 -> {objetoClass = TabsActivity::class.java}
+            10 -> {
+                esNoti = true
+                Notificaciones.lanzarNotificacion(this)
+            }
         }
-        var intent = Intent(this,objetoClass )
-        startActivity(intent)
+        if (!esNoti) {
+            var intent = Intent(this, objetoClass)
+            startActivity(intent)
+        }
 
-        this.drawerLayout.closeDrawers() // Cierro el menú sea cual sea la opción tocada.
+        this.drawerLayout.closeDrawers() // Cierro el menú sea cuál sea la opción tocada.
 
         return true
     }
