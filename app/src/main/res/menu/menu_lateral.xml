@@ -10,6 +10,18 @@
                 android:orderInCategory="0"
                 android:title="Versiones">
             </item>
+            <item
+                app:showAsAction="always"
+                android:icon="@drawable/rounded_arrow_forward_24"
+                android:orderInCategory="1"
+                android:title="WebActivity">
+            </item>
+            <item
+                app:showAsAction="always"
+                android:icon="@drawable/rounded_arrow_forward_24"
+                android:orderInCategory="2"
+                android:title="Créditos">
+            </item>
         </menu>
     </item>
     <item android:title="Ejercicios intermedios">
@@ -17,8 +29,26 @@
             <item
                 app:showAsAction="always"
                 android:icon="@drawable/rounded_arrow_forward_24"
-                android:orderInCategory="10"
+                android:orderInCategory="3"
                 android:title="IMC">
+            </item>
+            <item
+                app:showAsAction="always"
+                android:icon="@drawable/rounded_arrow_forward_24"
+                android:orderInCategory="4"
+                android:title="Búsqueda Web">
+            </item>
+            <item
+                app:showAsAction="always"
+                android:icon="@drawable/rounded_arrow_forward_24"
+                android:orderInCategory="5"
+                android:title="Selección Fecha y Hora">
+            </item>
+            <item
+                app:showAsAction="always"
+                android:icon="@drawable/rounded_arrow_forward_24"
+                android:orderInCategory="6"
+                android:title="Adivina el número">
             </item>
         </menu>
     </item>
@@ -27,8 +57,14 @@
             <item
                 app:showAsAction="always"
                 android:icon="@drawable/rounded_arrow_forward_24"
-                android:orderInCategory="20"
+                android:orderInCategory="7"
                 android:title="Perros">
+            </item>
+            <item
+                app:showAsAction="always"
+                android:icon="@drawable/rounded_arrow_forward_24"
+                android:orderInCategory="8"
+                android:title="Listado de Productos">
             </item>
         </menu>
     </item>

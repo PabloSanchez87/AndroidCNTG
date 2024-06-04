@@ -5,7 +5,7 @@ import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
 import gal.cntg.cntgapp.R
 
-class WebActivityActivity : AppCompatActivity() {
+class WebActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         val urlRemota:String = "https://cntg.xunta.gal/"

@@ -16,8 +16,11 @@
         android:theme="@style/Theme.CntgApp"
         tools:targetApi="31">
         <activity
+            android:name=".busquedaActivity.BusquedaActivity"
+            android:exported="false" />
+        <activity
             android:name=".MenuPrincipalActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,22 +28,31 @@
             </intent-filter>
         </activity>
 
-
         <activity
-            android:name=".webview.WebActivityActivity"
-            android:exported="false">
+            android:name=".webview.WebActivity"
+            android:exported="true"> <!-- esto significa que es exportable desde fuera, que sea visible para el ecosistema de android -->
+            <!-- Queremos que con el intent implicito nos pregunte con que herramienta lo abre.
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="cntg.xunta.gal"
+                    android:scheme="http" />
+                <data
+                    android:host="cntg.xunta.gal"
+                    android:scheme="https" />
+            </intent-filter>  -->
         </activity>
 
         <activity
             android:name=".fechayhora.SeleccionFechaYHoraActivity"
-            android:exported="false"></activity>
-
-
+            android:exported="false" />
         <activity
             android:name=".perros.GaleriaPerrosActivity"
-            android:exported="false"></activity>
-
-
+            android:exported="false" />
         <activity
             android:name=".perros.PerrosActivity"
             android:exported="false">

@@ -1,14 +1,23 @@
 package gal.cntg.cntgapp
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.material.internal.NavigationMenu
 import com.google.android.material.navigation.NavigationView
+import gal.cntg.cntgapp.busquedaActivity.BusquedaActivity
+import gal.cntg.cntgapp.creditos.CreditosActivity
+import gal.cntg.cntgapp.fechayhora.SeleccionFechaYHoraActivity
+import gal.cntg.cntgapp.imc.IMCActivity
+import gal.cntg.cntgapp.perros.PerrosActivity
+import gal.cntg.cntgapp.productos.ProductosActivity
+import gal.cntg.cntgapp.searchNumber.SearchNumberActivity
+import gal.cntg.cntgapp.versiones.VersionesActivity
+import gal.cntg.cntgapp.webview.WebActivity
 
 
 class MenuPrincipalActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -54,11 +63,35 @@ class MenuPrincipalActivity : AppCompatActivity(), NavigationView.OnNavigationIt
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+    override fun onNavigationItemSelected(opcionMenu: MenuItem): Boolean {
         Log.d("CNTG_APP", "Submenú tocado.")
 
-        // TODO definir los intents según la opción, lanzando la actividad correspondiente.
+        // Inicializamos una variable para guardar la activity destino.
+        var objetoClass: Class<*>? = null
 
+        // TODO definir los intents según la opción, lanzando la actividad correspondiente.
+        when (opcionMenu.order)
+        {
+            0 -> { objetoClass = VersionesActivity::class.java}
+            1 -> {
+                objetoClass = WebActivity::class.java
+                    // Aquí estamos provocando que el sistema tenga que decidir.
+                    //      Para probar debemos comentar el otro intent de abajo.
+                    //      Se ha incluido in intent filter en el android manifest
+                    //val uri = Uri.parse("https://cntg.xunta.gal/")
+                    //val intentImplicito = Intent(Intent.ACTION_WEB_SEARCH, uri)
+                    //startActivity(intentImplicito)
+            }
+            2 -> {objetoClass = CreditosActivity::class.java}
+            3 -> {objetoClass = IMCActivity::class.java}
+            4 -> {objetoClass = BusquedaActivity::class.java}
+            5 -> {objetoClass = SeleccionFechaYHoraActivity::class.java}
+            6 -> {objetoClass = SearchNumberActivity::class.java}
+            7 -> {objetoClass = PerrosActivity::class.java}
+            8 -> {objetoClass = ProductosActivity::class.java}
+        }
+        //var intent = Intent(this,objetoClass )
+        //startActivity(intent)
 
         this.drawerLayout.closeDrawers() // Cierro el menú sea cual sea la opción tocada.
 
