@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -15,6 +16,7 @@ import com.google.android.material.slider.Slider
 import gal.cntg.cntgapp.R
 import gal.cntg.cntgapp.util.RedUtil
 import kotlinx.coroutines.launch
+import org.w3c.dom.Text
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import kotlin.math.roundToInt
@@ -104,6 +106,22 @@ class ProductosActivity : AppCompatActivity() {
         var precioMedio = listadoProductos.map { it.price .toFloat() }.average() // it.price .toFloat() me devuelve una lista
                                                                                 // y la lista tiene un método average. Devuelve un Double
 
+
+        /**
+         * Para añadir un scrollView y elegimos estos datos para tener datos para mostrar.
+         *
+        findViewById<TextView>(R.id.textViewPrecioMedio).text = "Precio medio: $precioMedio"
+        findViewById<TextView>(R.id.textViewPrecioMasBarato).text = "Precio más barato: ${productoMasBarato.price}"
+        findViewById<TextView>(R.id.textViewPrecioMasCaro).text = "Precio más caro: ${productoMasCaro.price}"
+        *********************************************************************************/
+        /* Otra opción pero usando String para que se traduzca con el string.xml*/
+        //val precioMedioFormatted = getString(R.string.precio_medio, precioMedio.toString())
+        //val precioMasBaratoFormatted = getString(R.string.precio_mas_barato, productoMasBarato.price.toString())
+        //val precioMasCaroFormatted = getString(R.string.precio_mas_caro, productoMasCaro.price.toString())
+        findViewById<TextView>(R.id.textViewPrecioMedio).text = getString(R.string.precio_medio, precioMedio.toString())
+        findViewById<TextView>(R.id.textViewPrecioMasBarato).text =getString(R.string.precio_mas_barato, productoMasBarato.price.toString())
+        findViewById<TextView>(R.id.textViewPrecioMasCaro).text = getString(R.string.precio_mas_caro, productoMasCaro.price.toString())
+
         slider.value = productoMasCaro.price.toFloat() // Valor por defecto donde aparece ubicado
         slider.valueFrom = productoMasBarato.price.toFloat()// valor mínimo del slider
         slider.valueTo = productoMasCaro.price.toFloat() // Valor máximo del slider
@@ -126,7 +144,6 @@ class ProductosActivity : AppCompatActivity() {
         }
 
     }
-
 
     override fun onStart() {
         Log.d("CNTG APP", "en Start")

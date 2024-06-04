@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" /> <!-- Este permiso es necesario declararlo en el que manifest para que android permita a mi app acceder al estado de la red. -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <!-- Este permiso es necesario declararlo en el que manifest para que android permita lanzar notificaciones. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application

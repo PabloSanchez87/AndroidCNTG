@@ -11,4 +11,7 @@
     <string name="mensaje_boton_probar">Probar suerte</string>
     <string name="mensaje_reiniciar">Reiniciar</string>
     <string name="mensaje_titulo">CNTG APP\nAdivina un número entre 1 el 100</string>
+    <string name="precio_medio">Precio medio: %1$s</string>
+    <string name="precio_mas_barato">Precio más barato: %1$s</string>
+    <string name="precio_mas_caro">Precio más caro: %1$s</string>
 </resources>

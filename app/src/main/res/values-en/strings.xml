@@ -12,4 +12,7 @@
     <string name="mensaje_boton_probar">Try your luck</string>
     <string name="mensaje_reiniciar">Restart</string>
     <string name="mensaje_titulo">CNTG APP\nGuess a number between 1 and 100</string>
+    <string name="precio_medio">Average price: %1$s</string>
+    <string name="precio_mas_barato">Cheapest price: %1$s</string>
+    <string name="precio_mas_caro">Most expensive price: %1$s</string>
 </resources>
