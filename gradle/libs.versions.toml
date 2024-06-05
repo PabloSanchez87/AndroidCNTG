@@ -15,7 +15,8 @@ compiler = "5.0.0-rc01"
 glide = "5.0.0-rc01"
 picasso = "2.71828"
 googleAndroidLibrariesMapsplatformSecretsGradlePlugin = "2.0.1"
-playServicesMaps = "18.2.0"
+playServicesMaps = "18.0.0"
+playServicesLocation = "18.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,6 +33,7 @@ compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 picasso = { group = "com.squareup.picasso", name = "picasso", version.ref = "picasso" }
 play-services-maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "playServicesMaps" }
+play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -54,7 +54,8 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.glide)
     implementation(libs.picasso)
-    implementation(libs.play.services.maps)  // <-- librería para maps.
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)  // <-- librería para maps.
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
