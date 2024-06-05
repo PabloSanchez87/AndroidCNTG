@@ -78,6 +78,12 @@
                 android:orderInCategory="10"
                 android:title="Notificacion">
             </item>
+            <item
+                app:showAsAction="always"
+                android:icon="@drawable/rounded_arrow_forward_24"
+                android:orderInCategory="11"
+                android:title="Maps">
+            </item>
         </menu>
     </item>
 </menu>

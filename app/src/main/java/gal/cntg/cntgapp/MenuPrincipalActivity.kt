@@ -13,6 +13,7 @@ import gal.cntg.cntgapp.busquedaActivity.BusquedaActivity
 import gal.cntg.cntgapp.creditos.CreditosActivity
 import gal.cntg.cntgapp.fechayhora.SeleccionFechaYHoraActivity
 import gal.cntg.cntgapp.imc.IMCActivity
+import gal.cntg.cntgapp.mapa.MapsActivity
 import gal.cntg.cntgapp.perros.PerrosActivity
 import gal.cntg.cntgapp.productos.ProductosActivity
 import gal.cntg.cntgapp.searchNumber.SearchNumberActivity
@@ -96,6 +97,7 @@ class MenuPrincipalActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                 esNoti = true
                 Notificaciones.lanzarNotificacion(this)
             }
+            11 -> {objetoClass = MapsActivity::class.java}
         }
         // Si ha pulsado notificación reseteamos el valor de la flag esNoti
         // para que se pueda seguir usando el menú aunque no entres en la notificación.

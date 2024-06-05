@@ -14,4 +14,5 @@
     <string name="precio_medio">Precio medio: %1$s</string>
     <string name="precio_mas_barato">Precio más barato: %1$s</string>
     <string name="precio_mas_caro">Precio más caro: %1$s</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

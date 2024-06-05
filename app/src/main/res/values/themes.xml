@@ -3,8 +3,6 @@
     <style name="Base.Theme.CntgApp" parent="Theme.Material3.DayNight">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-
-
     </style>
 
     <style name="Theme.CntgApp" parent="Base.Theme.CntgApp" />
