@@ -7,6 +7,12 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Este permiso es necesario declararlo en el que manifest para que android permita lanzar notificaciones. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
+    <!-- Este permiso es necesario declararlo en el que manifest para que android permita a mi app USE LA LOCATION
+    PERO TMB TENDREMOS QUE HACERLO EN EJECUCIÓN AL TRATARSE DE UN PERMISO PELIGROSO. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -54,6 +60,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
         <activity
             android:name=".webview.WebActivity"
             android:exported="true"> <!-- esto significa que es exportable desde fuera, que sea visible para el ecosistema de android -->
