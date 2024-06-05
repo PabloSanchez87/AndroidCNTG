@@ -3,6 +3,8 @@ package gal.cntg.cntgapp.mapa
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Geocoder
+import android.location.Location
 import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,6 +27,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import gal.cntg.cntgapp.R
 import gal.cntg.cntgapp.databinding.ActivityMapsBinding
+import java.util.Locale
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -145,6 +148,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 if (resultadoUbicacion != null){                        // estamos accediendo a la ubicación en si.
                     Log.d("CNTG_APP", "Ubicación obtenida ${resultadoUbicacion.lastLocation}")
 
+
+
                     /* CODIGO PROPIO PARA MOSTRAR LA UBICACIÓN.
                     // Elimina el marcador anterior si lo hay y añade uno nuevo en la nueva ubicación
                     val nuevaUbicacion = resultadoUbicacion.lastLocation
@@ -155,6 +160,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     // Mueve la cámara para centrarse en la nueva ubicación
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nuevaLatLng, 15f))*/
 
+                    // Cambiamos la ubicación mostrada.
+                    this@MapsActivity.mostrarUbicacion(resultadoUbicacion.lastLocation)
+
+                    //Borramos.
                     this@MapsActivity.fusedLocationProviderClient.removeLocationUpdates(locationCallback) // para que pare de actualizar la búsqueda
                 }
             }
@@ -180,6 +189,27 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
         // Acceso al GPS. De primeras marca en rojo, pero el asistente nos saca el anterior if.
         this.fusedLocationProviderClient.requestLocationUpdates(this.locationRequest, this.locationCallback, null)
+    }
+
+    // Mostrar la ubicación actual
+    private fun mostrarUbicacion(lastLocation: Location) {
+
+        val ubicacion_Actual = LatLng(lastLocation.latitude, lastLocation.longitude)
+        this.mMap.addMarker(MarkerOptions().position(ubicacion_Actual).title("Estoy aquí!"))
+        this.mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ubicacion_Actual, 15f))
+        mostrarDireccionPostal(lastLocation)
+
+    }
+
+    fun mostrarDireccionPostal (ubicacion: Location){
+        val geocoder = Geocoder(this, Locale("es")) // es el objeto que permite pasar de direccón física a postal.
+
+        val direcciones = geocoder.getFromLocation(ubicacion.latitude, ubicacion.longitude,1)
+
+        if (direcciones != null && direcciones.size>0){
+            val direccion = direcciones[0]
+            Log.d("CNTG_APP_DIRECCION", "Dirección obtenida: ${direccion.getAddressLine(0)} CP: ${direccion.postalCode} LOCALIDAD: ${direccion.locality}")
+        }
     }
 
 }
