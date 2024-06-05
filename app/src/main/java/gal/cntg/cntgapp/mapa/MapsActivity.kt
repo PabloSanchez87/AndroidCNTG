@@ -75,7 +75,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         // Solicitamos los permisos en ejecución para location (que se considera permiso PELIGROSO) --> A partir de la v6.
         // Pq después el usuario los puede sacar desde los ajustes del teléfono, por eso tenemos que comprobarlo.
         // Opción perdirlos siempre. Si android ve que ya los tienes ya no lo solicita.
-        // OJO MANIFEST DE ANDROID.
+        // OJO MANIFEST DE ANDROID. ///
         requestPermissions(arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), 550)
     }
 
