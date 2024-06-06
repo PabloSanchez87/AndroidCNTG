@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "111081294539",
+    "project_id": "cntg-app-server",
+    "storage_bucket": "cntg-app-server.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111081294539:android:fa9a1e2ffeb850dd14e94e",
+        "android_client_info": {
+          "package_name": "gal.cntg.cntgapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhTIDEItujQfeZIjz9JCWuqSKMfd-jQTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin)
+
+    // Add the Google services Gradle plugin
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -55,8 +58,16 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.picasso)
     implementation(libs.play.services.maps)
-    implementation(libs.play.services.location)  // <-- librería para maps.
+    implementation(libs.play.services.location)
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.database.ktx)  // <-- librería para maps.
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    // TODO: Add the dependencies for Firebase products you want to use
+    // When using the BoM, don't specify versions in Firebase dependencies
+    // https://firebase.google.com/docs/android/setup#available-libraries
 }

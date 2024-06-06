@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <!-- Este permiso es necesario declararlo en el que manifest para que android permita a mi app se conecte. -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- Este permiso es necesario declararlo en el que manifest para que android permita a mi app acceder al estado de la red. -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Este permiso es necesario declararlo en el que manifest para que android permita lanzar notificaciones. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-
-    <!-- Este permiso es necesario declararlo en el que manifest para que android permita a mi app USE LA LOCATION
-    PERO TMB TENDREMOS QUE HACERLO EN EJECUCIÓN AL TRATARSE DE UN PERMISO PELIGROSO. -->
+    <!--
+ Este permiso es necesario declararlo en el que manifest para que android permita a mi app USE LA LOCATION
+    PERO TMB TENDREMOS QUE HACERLO EN EJECUCIÓN AL TRATARSE DE UN PERMISO PELIGROSO.
+    -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
 
     <application
         android:allowBackup="true"
@@ -23,7 +22,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CntgApp"
         tools:targetApi="31">
+        <activity
+            android:name=".login.AutenticacionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login.RegistroNuevoUsuarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login.MenuLoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -35,8 +48,7 @@
              project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
         -->
-        <!-- Aquí tenemos que meter la clave que nos den. Creada en local.properties-->
-
+        <!-- Aquí tenemos que meter la clave que nos den. Creada en local.properties -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${CLAVE_GOOGLEMAPS}" />
@@ -54,14 +66,8 @@
         <activity
             android:name=".MenuPrincipalActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-
-
         <activity
             android:name=".webview.WebActivity"
             android:exported="true"> <!-- esto significa que es exportable desde fuera, que sea visible para el ecosistema de android -->
