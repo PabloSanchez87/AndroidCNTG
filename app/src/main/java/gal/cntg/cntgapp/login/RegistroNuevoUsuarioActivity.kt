@@ -1,5 +1,6 @@
 package gal.cntg.cntgapp.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
@@ -29,6 +30,8 @@ class RegistroNuevoUsuarioActivity : AppCompatActivity() {
             .addOnCompleteListener { tarea ->
                 if (tarea.isSuccessful) {
                     Toast.makeText(this, "NUEVO USARIO REGISTRADO.", Toast.LENGTH_SHORT).show()
+                    finish()
+                    startActivity(Intent(this, AutenticacionActivity::class.java))
                 } else {
                     Toast.makeText(this, "ERROR! NO SEA REGISTRADO EL USUARIO.", Toast.LENGTH_SHORT)
                         .show()

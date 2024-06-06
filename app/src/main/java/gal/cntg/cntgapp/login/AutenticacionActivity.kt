@@ -1,11 +1,13 @@
 package gal.cntg.cntgapp.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import gal.cntg.cntgapp.MenuPrincipalActivity
 import gal.cntg.cntgapp.R
 
 class AutenticacionActivity : AppCompatActivity() {
@@ -27,6 +29,8 @@ class AutenticacionActivity : AppCompatActivity() {
             .addOnCompleteListener { tarea ->
                 if (tarea.isSuccessful) {
                     Toast.makeText(this, "Usuario autenticado.", Toast.LENGTH_SHORT).show()
+                    finish()
+                    startActivity(Intent(this, MenuPrincipalActivity::class.java))
                 } else {
                     Toast.makeText(this, "ERROR AL AUTENTICAR EL USUARIO! .", Toast.LENGTH_SHORT)
                         .show()

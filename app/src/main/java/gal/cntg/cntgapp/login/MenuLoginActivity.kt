@@ -30,5 +30,6 @@ class MenuLoginActivity : AppCompatActivity() {
     fun acceder(view: View) {
         val intentLogin = Intent(this, AutenticacionActivity::class.java)
         startActivity(intentLogin)
+        finish()
     }
 }

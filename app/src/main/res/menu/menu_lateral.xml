@@ -84,6 +84,12 @@
                 android:orderInCategory="11"
                 android:title="Maps">
             </item>
+            <item
+                app:showAsAction="always"
+                android:icon="@drawable/rounded_arrow_forward_24"
+                android:orderInCategory="12"
+                android:title="Insertar cliente Firebase">
+            </item>
         </menu>
     </item>
 </menu>

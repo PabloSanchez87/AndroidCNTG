@@ -16,6 +16,7 @@ import gal.cntg.cntgapp.imc.IMCActivity
 import gal.cntg.cntgapp.mapa.MapsActivity
 import gal.cntg.cntgapp.perros.PerrosActivity
 import gal.cntg.cntgapp.productos.ProductosActivity
+import gal.cntg.cntgapp.realtimedatabase.InsertarClientesActivity
 import gal.cntg.cntgapp.searchNumber.SearchNumberActivity
 import gal.cntg.cntgapp.tabs.TabsActivity
 import gal.cntg.cntgapp.versiones.VersionesActivity
@@ -98,6 +99,7 @@ class MenuPrincipalActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                 Notificaciones.lanzarNotificacion(this)
             }
             11 -> {objetoClass = MapsActivity::class.java}
+            12 -> {objetoClass = InsertarClientesActivity::class.java}
         }
         // Si ha pulsado notificación reseteamos el valor de la flag esNoti
         // para que se pueda seguir usando el menú aunque no entres en la notificación.
