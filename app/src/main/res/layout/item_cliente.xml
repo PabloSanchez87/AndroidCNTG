@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/nombreRecuperado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre" />
+
+    <TextView
+        android:id="@+id/edadRecuperada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edad" />
+
+    <TextView
+        android:id="@+id/localidadRecuperada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Localidad" />
+
+    <TextView
+        android:id="@+id/nacionalidadRecuperada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nacionalidad" />
+
+    <TextView
+        android:id="@+id/emailRecuperado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email" />
+
+    <TextView
+        android:id="@+id/claveRecuperada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clave" />
+
+
+</LinearLayout>
