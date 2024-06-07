@@ -8,7 +8,7 @@ import gal.cntg.cntgapp.R
 class WebActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        val urlRemota:String = "https://cntg.xunta.gal/"
+        val urlRemota:String = "https://github.com/PabloSanchez87/AndroidCNTG"
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web_activity)
