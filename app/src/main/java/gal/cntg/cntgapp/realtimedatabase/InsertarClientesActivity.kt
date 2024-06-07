@@ -18,6 +18,7 @@ class InsertarClientesActivity : AppCompatActivity() {
     lateinit var binding: ActivityInsertarClientesBinding
     lateinit var databaseReference: DatabaseReference // es la conexcion a la BBDD.
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -99,33 +100,48 @@ class InsertarClientesActivity : AppCompatActivity() {
         if (RedUtil.hayInternet(this)) {
             // Si hay conexión a Internet, obtener los datos de Firebase
             this.databaseReference.child("Clientes").get().addOnSuccessListener { datos ->
-                // Convertir los datos obtenidos en una lista de clientes
-                val lista = datos.value as Map<String, Map<String, Any>>
-                val listaClientes = ArrayList<Cliente>()
+                // Verificar si los datos no son nulos y contienen algún valor
+                if (datos != null && datos.exists()) {
+                    // Convertir los datos obtenidos en una lista de clientes
+                    val lista = datos.value as? Map<String, Map<String, Any>>
+                    if (lista != null) {
+                        val listaClientes = ArrayList<Cliente>()
 
-                lista.forEach { (claveId, valor) ->
-                    // Crear un objeto Cliente para cada entrada en los datos
-                    val cliente = Cliente(
-                        valor["edad"] as Long,
-                        valor["localidad"].toString(),
-                        valor["nombre"].toString(),
-                        valor["email"].toString(),
-                        valor["nacionalidad"].toString(),
-                        claveId
-                    )
-                    listaClientes.add(cliente)
+                        lista.forEach { (claveId, valor) ->
+                            // Crear un objeto Cliente para cada entrada en los datos
+                            val cliente = Cliente(
+                                valor["edad"] as Long,
+                                valor["localidad"].toString(),
+                                valor["nombre"].toString(),
+                                valor["email"].toString(),
+                                valor["nacionalidad"].toString(),
+                                claveId
+                            )
+                            listaClientes.add(cliente)
+                        }
+
+                        // Iniciar la nueva actividad y pasar los datos de los clientes como extra en el intent
+                        val intent = Intent(this, ListarClientesActivity::class.java)
+                        intent.putExtra("listaClientes", listaClientes)
+                        startActivity(intent)
+                    } else {
+                        // Mostrar un mensaje indicando que los datos no son válidos
+                        Toast.makeText(this, "Los datos obtenidos no son válidos", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    // Mostrar un mensaje indicando que no se encontraron datos en Firebase
+                    Toast.makeText(this, "No se encontraron datos en Firebase", Toast.LENGTH_SHORT).show()
                 }
-
-                // Iniciar la nueva actividad y pasar los datos de los clientes como extra en el intent
-                val intent = Intent(this, ListarClientesActivity::class.java)
-                intent.putExtra("listaClientes", listaClientes)
-                startActivity(intent)
+            }.addOnFailureListener { exception ->
+                // Mostrar un mensaje de error si falla la obtención de datos de Firebase
+                Toast.makeText(this, "Error al obtener datos de Firebase: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
         } else {
             // Si no hay conexión a Internet, mostrar un mensaje de error al usuario
             Toast.makeText(this, "No hay conexión a Internet", Toast.LENGTH_SHORT).show()
         }
     }
+
 
     // TODO --> El código de abajo es lo que programos en clase.
     /*
