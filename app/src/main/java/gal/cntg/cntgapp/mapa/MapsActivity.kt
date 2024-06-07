@@ -148,8 +148,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 if (resultadoUbicacion != null){                        // estamos accediendo a la ubicación en si.
                     Log.d("CNTG_APP", "Ubicación obtenida ${resultadoUbicacion.lastLocation}")
 
-
-
                     /* CODIGO PROPIO PARA MOSTRAR LA UBICACIÓN.
                     // Elimina el marcador anterior si lo hay y añade uno nuevo en la nueva ubicación
                     val nuevaUbicacion = resultadoUbicacion.lastLocation

@@ -15,46 +15,55 @@
             android:id="@+id/nombreRecuperado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:text="Nombre" />
 
         <TextView
             android:id="@+id/edadRecuperada"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="normal"
             android:text="Edad" />
 
         <TextView
             android:id="@+id/localidadRecuperada"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="normal"
             android:text="Localidad" />
 
         <TextView
             android:id="@+id/nacionalidadRecuperada"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="normal"
             android:text="Nacionalidad" />
 
         <TextView
             android:id="@+id/emailRecuperado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="normal"
             android:text="Email" />
 
         <TextView
             android:id="@+id/claveRecuperada"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="italic"
             android:text="Clave" />
     </LinearLayout>
 
     <!-- Botón de borrar -->
     <Button
-        android:id="@+id/btnBorrarCliente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:onClick="borrarCliente"
-        android:layout_gravity="center"
-        android:text="Borrar" />
+    android:id="@+id/btnBorrarCliente"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="5dp"
+    android:onClick="borrarCliente"
+    android:drawableLeft="@drawable/outline_delete_forever_24"
+    android:layout_gravity="center"
+    android:text="Borrar"
+    android:textStyle="bold"
+    android:backgroundTint="#EA0000"/>
 </LinearLayout>

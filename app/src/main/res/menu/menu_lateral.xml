@@ -88,7 +88,7 @@
                 app:showAsAction="always"
                 android:icon="@drawable/rounded_arrow_forward_24"
                 android:orderInCategory="12"
-                android:title="Insertar cliente Firebase">
+                android:title="Cliente BBDD Firebase">
             </item>
         </menu>
     </item>

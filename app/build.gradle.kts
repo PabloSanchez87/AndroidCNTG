@@ -7,6 +7,7 @@ plugins {
     id("com.google.gms.google-services")
 }
 
+
 android {
     namespace = "gal.cntg.cntgapp" // id de la aplicación. Carpeta raíz.
     compileSdk = 34  // Versión con la que estamos compilando
